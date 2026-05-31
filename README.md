@@ -1,44 +1,39 @@
-# 🛍️ Kirti Crafts - Full-Stack Artisan E-Commerce Platform
+# 🛍️ Kirti Crafts - Full-Stack E-Commerce Website
 
-Kirti Crafts is a dynamic, full-stack e-commerce web application built using the 
-**MERN stack (MongoDB, Express.js, React, Node.js)**
- The platform is specifically designed for local artisans and creators to list and sell authentic handmade products like toys, crafts, and apparel.
-
-This project transitions from a static prototype to a **fully dynamic, production-ready architecture**, focusing on clean data isolation, robust image streaming from a backend server, and scalable database management.
+Kirti Crafts is a full-stack e-commerce website where local artisans can show and sell their handmade products (like crafts and toys).
+It is built using the **MERN stack (MongoDB, Express.js, React, Node.js)**.
 
 ---
-## 🎯 The Core Problem & Solution
+
+## 🎯 The Main Problem & Our MVP Solution
 
 ### The Problem:
-Traditional e-commerce templates rely heavily on rigid user session walls (mandatory logins) and heavy database structures to upload and stream dynamic images. For small-scale local artisans or early-stage platform testing, setting up complex authentication layers and storing heavy image binaries directly in cloud databases causes high latency, slows down the development cycle, and creates an unnecessary barrier to product listing.
+Most e-commerce websites are very heavy and complicated. They force users to login right away and save big image files directly in the cloud database. For small artisans or new projects, this makes the website slow, expensive, and difficult to test quickly.
 
-### The Solution:
-This project solves this by decoupling the asset management layer from the database state:
-1. **Bypassing Heavy Session Gates:** Allowed instant product listing via a direct form dashboard without forcing heavy authentication blockers at the initial scale.
-2. **Optimized Image Streaming Pipeline:** Implemented an independent file storage framework. Instead of bloating MongoDB Atlas with heavy image strings, raw file binaries are handled via an express-multer engine on a storage server, keeping the cloud database lightweight with simple reference pointers.
-3. **Frontend Fallback Engine:** Built custom UI logic within React to instantly resolve image path discrepancies (supporting standard formats like `.jpg`, `.png`), guaranteeing zero broken asset templates on the frontend interface even when backend mock-ups shift dynamically.
-
-   ------
-
-## 🚀 Key Features
-
-* **Dynamic Admin Dashboard:** Enables real-time product management (Add/Remove products) that syncs instantly with the cloud database.
-* **Robust Image Streaming Pipeline:** Implements a professional backend file storage system where images are handled securely via local/cloud storage, separating raw file binaries from lightweight database references.
-* **Smart Image Fallback Handler:** A custom frontend error-resilient logic that automatically resolves image path inconsistencies (supporting universal `.jpg`/`.png` formats) to guarantee zero broken images on UI.
-* **Category-Based Isolation:** Dynamic routing and rendering for product catalogs (e.g., Toys, Apparel) using React Context API.
-* **Clean Cloud Infrastructure:** Powered by MongoDB Atlas for secure, cloud-hosted document management.
-* **Lightweight Client Architecture:** Operates with a seamless client-side state using local mock components, completely independent of heavy session blockers.
+### Our MVP (Minimum Viable Product) Solution:
+To solve this, we created a lightweight **MVP** (a simple, working prototype) that focuses only on the most important features first:
+1. **Easy Product Management:** Artisans can directly add or remove products using a simple form dashboard without any complicated login walls.
+2. **Smart Image Handling:** Instead of saving heavy images inside the database, our backend server saves the raw images in a separate folder and only keeps small link pointers in the MongoDB Atlas cloud database. This keeps our website super fast!
+3. **No Broken Images:** We added special code in React so that images always load smoothly without showing any broken links on the website.
 
 ---
 
-## 🛠️ Tech Stack
+## 🚀 Future Roadmap (Upcoming Features)
 
-**Frontend:** React.js, Vite, React Context API, CSS3
-**Backend:** Node.js, Express.js, Multer (File Handling)
-**Database:** MongoDB Atlas (Cloud)
-**Tools & Version Control:** Git, GitHub, Postman / MongoDB Compass
+Since this is an MVP, we are planning to add many more awesome features very soon:
+* **Proper User Authentication:** Adding a secure Login and Sign-Up system (using JWT) for both customers and admins.
+* **Detailed Product Descriptions:** Giving options to add size, materials used, and detailed descriptions for every craft item.
+* **Working Cart & Checkout:** A smooth shopping cart system that remembers user choices.
+* **Payment Gateway:** Integrating secure payment options (like UPI or Cards) for real purchases.
 
 ---
+
+## 🛠️ Tech Stack (Tools Used)
+
+* **Frontend:** React.js, Vite, React Context API, CSS3
+* **Backend:** Node.js, Express.js, Multer (For file uploads)
+* **Database:** MongoDB Atlas (Cloud Database)
+* **Version Control:** Git & GitHub
 
 ## 📁 Project Architecture
 
