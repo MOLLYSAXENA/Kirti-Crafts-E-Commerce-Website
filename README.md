@@ -7,6 +7,18 @@ Kirti Crafts is a dynamic, full-stack e-commerce web application built using the
 This project transitions from a static prototype to a **fully dynamic, production-ready architecture**, focusing on clean data isolation, robust image streaming from a backend server, and scalable database management.
 
 ---
+## 🎯 The Core Problem & Solution
+
+### The Problem:
+Traditional e-commerce templates rely heavily on rigid user session walls (mandatory logins) and heavy database structures to upload and stream dynamic images. For small-scale local artisans or early-stage platform testing, setting up complex authentication layers and storing heavy image binaries directly in cloud databases causes high latency, slows down the development cycle, and creates an unnecessary barrier to product listing.
+
+### The Solution:
+This project solves this by decoupling the asset management layer from the database state:
+1. **Bypassing Heavy Session Gates:** Allowed instant product listing via a direct form dashboard without forcing heavy authentication blockers at the initial scale.
+2. **Optimized Image Streaming Pipeline:** Implemented an independent file storage framework. Instead of bloating MongoDB Atlas with heavy image strings, raw file binaries are handled via an express-multer engine on a storage server, keeping the cloud database lightweight with simple reference pointers.
+3. **Frontend Fallback Engine:** Built custom UI logic within React to instantly resolve image path discrepancies (supporting standard formats like `.jpg`, `.png`), guaranteeing zero broken asset templates on the frontend interface even when backend mock-ups shift dynamically.
+
+   ------
 
 ## 🚀 Key Features
 
