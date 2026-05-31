@@ -1,0 +1,202 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+    border-bottom: 3px solid rgba(7, 19, 19, 0.02);
+    background-color: #dbc9b4; /* softer off-white */
+}
+
+.nav-logo{
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.image{
+    border: 2px solid #c1883f; /* warm accent */
+    border-radius: 50%;
+}
+
+.nav-logo p{
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    color: #5a3916; /* darker brown for contrast */
+    margin: 0 1rem 0 0.5rem;
+    font-weight: 600;
+}
+
+.nav-menu{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 1.8rem;
+    font-size: 1.05rem;
+    color: #6b4721; /* menu link color */
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 500;
+    margin-right: 5rem;
+    margin-left: 3rem;
+    
+}
+
+.nav-menu li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.02rem;
+    font-weight: bold;
+}
+
+.nav-menu li a{ /* ensure links inherit color and no underline */
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.nav-menu li:hover{
+    color: #11682b; /* green accent on hover */
+}
+
+.nav-menu li:hover a{
+    color: inherit;
+}
+
+.nav-menu hr{
+    border: none;
+    width: 70%;
+    height: 0.18rem;
+    background: #c1883f;
+}
+
+.nav-login-cart{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 4rem;
+}
+
+.nav-login-cart button{
+    border-radius: 6px;
+    color: #ffffff;
+    background-color: #8a4b0d; /* button accent */
+    padding: 0.45rem 0.6rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 0.95rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.nav-login-cart  button:hover{
+    background-color: #dea248; /* light on hover */
+    color: #16411a;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.nav-login-cart img{
+    border-radius: 6px;
+    width: 2.6rem;
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+
+
+.nav-cart-count{
+    min-width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    background-color: #145723; /* badge green */
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0 0.25rem;
+    margin-left: -2rem; /* pull badge closer to the cart image */
+    margin-bottom: 2rem;
+}
+/* ==========================================================================
+   📱 MOBILE & TABLET RESPONSIVE MEDIA QUERY (Screen width <= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: space-between; /* Items ko corners par push karne ke liye */
+        padding: 0.5rem 0.8rem;
+    }
+
+    /* 1. Logo size aur spacing adjustment */
+    .nav-logo p {
+        font-size: 1.2rem; /* Mobile ke liye text chota kiya */
+        margin: 0;
+    }
+
+    .image {
+        height: 45px !important; /* Logo image height fix */
+        width: 45px !important;
+    }
+
+    /* 2. Menu Links handling: 
+       Mobile par space na hone ki wajah se abhi hum ise hide kar rahe hain. 
+       (Baad me jab hum Hamburger ☰ menu banayenge tab ise use karenge) */
+    .nav-menu {
+        display: none; 
+    }
+
+    /* 3. Right Panel Container Adjustment */
+    .nav-login-cart {
+        margin-right: 0; /* Extra desktop margins hataye */
+        gap: 0.5rem; /* Buttons ke beech ki dori kam kari */
+    }
+
+    /* 4. Action Buttons Mobile Tuning */
+    .nav-login-cart button {
+        padding: 0.4rem 0.5rem;
+        font-size: 0.8rem; /* Chota text screen fitting ke liye */
+        margin-left: 0.2rem;
+    }
+
+    /* 5. Cart Icon and Badge Scaling */
+    .nav-login-cart img {
+        width: 2rem;
+        height: auto;
+    }
+
+    .nav-cart-count {
+        min-width: 1.1rem;
+        height: 1.1rem;
+        font-size: 0.65rem;
+        margin-left: -1.3rem; /* Badge ko icon ke paas adjust kiya */
+        margin-bottom: 1.4rem;
+    }
+}
+
+
+/* FOOTER SECTION RESPONSIVE MEDIA QUERY (Screen width <= 768px)*/
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links {
+        justify-content: center; /* Icons ko card container ke center me shift*/}}

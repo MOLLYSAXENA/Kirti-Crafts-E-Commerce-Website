@@ -1,0 +1,137 @@
+.footer-section {
+    background-color: #fbf5ec;
+    border-top: 1px solid #ebd9c5;
+    padding: 2.5rem 0 1.5rem 0; /* Reduced padding for a tighter fit */
+    width: 100%;
+    font-family: 'Gill Sans MT', Calibri, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 10rem;
+}
+
+.brand-info {
+    flex: 1.5;
+}
+
+.footer-logo {
+    color: rgb(9, 72, 37);
+    font-size: 1.5rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.footer-desc {
+    color: #4a3b2c;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.footer-col h4 {
+    color: rgb(207, 152, 15);
+    font-size: 1rem;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0 0 0.8rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.4rem;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #4a3b2c;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: rgb(9, 72, 37);
+}
+
+.contact-text {
+    color: #4a3b2c;
+    font-size: 0.95rem;
+    margin: 0 0 0.6rem 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.social-links a {
+    font-size: 0.85rem;
+    color: #ffffff;
+    background-color: #9f611a;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: rgb(9, 72, 37);
+}
+
+.footer-bottom {
+    width: 90%;
+    margin: 2rem auto 0 auto;
+    text-align: center;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 1px solid #ebd9c5;
+    margin-bottom: 1rem;
+}
+
+.footer-bottom p {
+    color: #7a6b5c;
+    font-size: 0.85rem;
+    margin: 0;
+}
+/*  FOOTER SECTION RESPONSIVE MEDIA QUERY (Screen width <= 768px)*/
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links { 
+        justify-content: center;} /* Icons ko card container ke center me shift*/
+    }

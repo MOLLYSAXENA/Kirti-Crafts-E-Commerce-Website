@@ -1,0 +1,156 @@
+/* --- CONTAINER WRAPPER FOR FULL VIEW --- */
+.login-page-container {
+    width: 100%;
+    background: linear-gradient(180deg, #fbf5ec 0%, #ffffff 100%); /* Subtle warm backdrop blur entry */
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- THE LOGIN MAIN BOX CARD --- */
+.login-box-wrapper {
+    width: 100%;
+    max-width: 26rem; /* Clean tight form scaling card aspect */
+    background: #ffffff;
+    border: 1px solid #ebd9c5;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 8px 24px rgba(74, 59, 44, 0.05); /* Soft vintage brown tone drop shadow */
+    font-family: 'Gill Sans MT', Calibri, sans-serif;
+    margin-bottom: 5rem;
+    box-sizing: border-box;
+}
+
+.login-box-wrapper h2 {
+    color: rgb(9, 72, 37); /* Iconic Brand Forest Green */
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 2rem;
+    margin: 0 0 1.8rem 0;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.03rem;
+}
+
+/* --- INPUT BOX GROUPS STRUCTURE --- */
+.login-fields-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.input-group label {
+    color: #4a3b2c;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.input-group input {
+    height: 2.6rem;
+    width: 100%;
+    border: 1px solid #ebd9c5;
+    border-radius: 6px;
+    padding: 0 0.8rem;
+    font-size: 1rem;
+    color: #4a3b2c;
+    background-color: #fbf5ec60;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Input text box focal interactions */
+.input-group input:focus {
+    border-color: rgb(9, 72, 37);
+    background-color: #ffffff;
+}
+
+/* --- SUBMIT ACTIONS BUTTON --- */
+.login-submit-btn {
+    width: 100%;
+    height: 2.8rem;
+    background: linear-gradient(#be7523, #9f611a); /* Brand signature terracotta gold gradient */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    box-shadow: 0 3px 6px rgba(159, 97, 26, 0.15);
+    transition: opacity 0.2s;
+}
+
+.login-submit-btn:hover {
+    opacity: 0.95;
+}
+
+/* --- SWITCH FLOW CONTROLS --- */
+.login-toggle-text {
+    color: #7a6b5c;
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 1.5rem 0 1.2rem 0;
+}
+
+.login-toggle-text span {
+    color: rgb(207, 152, 15); /* Brand Gold accent highlights */
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-toggle-text span:hover {
+    color: rgb(9, 72, 37);
+}
+
+/* --- AGREEMENT BOX AT THE FOOT --- */
+.login-agree-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+    border-top: 1px dashed #ebd9c5;
+    padding-top: 1.2rem;
+}
+
+.login-agree-checkbox input[type="checkbox"] {
+    margin-top: 0.2rem;
+    accent-color: rgb(9, 72, 37); /* Custom checkmark green tint matching */
+    cursor: pointer;
+}
+
+.login-agree-checkbox label {
+    color: #7a6b5c;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links {
+        justify-content: center; /* Icons ko card container ke center me shift*/}}

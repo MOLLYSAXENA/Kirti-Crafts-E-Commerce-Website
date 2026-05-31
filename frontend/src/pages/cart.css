@@ -1,0 +1,207 @@
+/* --- UNIVERSAL BLOCK SETUP --- */
+.cart-page-container {
+    width: 100%;
+    background-color: #ffffff;
+    font-family: Georgia, 'Times New Roman';
+}
+
+/* --- BANNER LAYOUT TOPBAR --- */
+.cart-header {
+    background: linear-gradient(180deg, #fbf5ec, #ffffff);
+    padding: 2.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid #ebd9c5;
+}
+
+.cart-header h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: rgb(9, 72, 37);
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+}
+
+.cart-wrapper {
+    width: 90%;
+    margin: 3rem auto;
+    min-height: 50vh;
+}
+
+/* --- EMPTY CART TEMPLATE --- */
+.empty-cart {
+    text-align: center;
+    padding: 4rem 0;
+    font-family: Georgia, serif;
+    color: #4a3b2c;
+}
+
+.empty-cart h2 {
+    color: rgb(207, 152, 15);
+    font-size: 2rem;
+}
+
+/* --- COLUMN FLEX LAYOUT GRID SYSTEM --- */
+.cart-content {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* LEFT BLOCK: INVOICE TABLE DISPLAY */
+.cart-items-section {
+    flex: 2;
+    min-width: 20rem;
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+.cart-items-labels {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(207, 152, 15);
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+}
+
+.cart-item-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #4a3b2c;
+    font-size: 1rem;
+}
+
+.cart-item-img {
+    width: 4.5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ebd9c5;
+    margin: 0 auto;
+}
+
+.cart-item-name {
+    text-align: left;
+    padding-right: 1rem;
+    font-weight: 500;
+}
+
+.cart-item-total {
+    font-weight: bold;
+    color: rgb(9, 72, 37);
+}
+
+/* --- SYNC QUANTITY ACTIONS COMPONENT --- */
+.cart-page-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #9f611a;
+    border-radius: 4px;
+    overflow: hidden;
+    width: fit-content;
+    margin: 0 auto;
+    background: #ffffff;
+}
+
+.cart-page-counter button {
+    background: #9f611a;
+    color: white;
+    border: none;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.cart-page-counter span {
+    padding: 0 0.8rem;
+    font-weight: bold;
+}
+
+/* RIGHT BLOCK: ORDER BREAKDOWN SUMMARY CHECK */
+.cart-totals-section {
+    flex: 0.8;
+    background-color: #fbf5ec;
+    border: 1px solid #ebd9c5;
+    border-radius: 12px;
+    padding: 2rem;
+    font-family: 'Gill Sans MT', sans-serif;
+    min-width: 18rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.cart-totals-section h3 {
+    margin-top: 0;
+    color: rgb(9, 72, 37);
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #ebd9c5;
+    padding-bottom: 0.5rem;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    font-size: 1.05rem;
+    color: #4a3b2c;
+}
+
+.free-shipping {
+    color: rgb(9, 72, 37);
+    font-weight: bold;
+}
+
+.final-total {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: rgb(9, 72, 37);
+    margin-top: 1.5rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    background: linear-gradient(#be7523, #9f611a);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: opacity 0.2s;
+}
+
+.checkout-btn:hover {
+    opacity: 0.95;
+}
+/*  FOOTER SECTION RESPONSIVE MEDIA QUERY (Screen width <= 768px)*/
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links {
+        justify-content: center; /* Icons ko card container ke center me shift*/}}

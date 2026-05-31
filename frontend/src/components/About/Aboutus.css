@@ -1,0 +1,149 @@
+/* Section wrapper with even spacing */
+.about-section {
+    background: linear-gradient(180deg, #ffffff, #fbf5ec, #fcfcfb, #fcf8f1);
+    display: flex;
+    margin: 2rem auto 0 auto; 
+    height: fit-content;
+    border: 1px solid rgb(244, 230, 192);
+    box-shadow: 0px 5px 5px rgba(2, 2, 2, 0.1);
+    width: 90%; 
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-bottom: 3rem;
+    overflow: hidden; /* Crucial: Prevents the image's inner borders from spilling out */
+}
+
+/* Main inner container */
+.about-container {
+    display: flex;
+    width: 100%; /* Changed from 90% to allow left side to touch the edge */
+    gap: 4rem; /* Gap between image and text */
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- LEFT SIDE: IMAGE CONTAINER --- */
+.about-left {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Changed from right to start the image from the absolute left */
+    align-self: stretch;
+    padding: 0;
+}
+
+.about-left img {
+    width: 100%;
+    max-width: 38rem;
+    height: 100%;
+    max-height: 28rem;
+    object-fit: cover; /* Changed from 'stretch' to 'cover' to prevent image distortion while filling the space */
+    
+    /* Kept your right-side border radius, but ensured left side is completely flat (0) */
+    border-radius: 0 40% 40% 0; 
+    box-shadow: -3px 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* --- RIGHT SIDE: TEXT CONTAINER --- */
+.about-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 4rem; /* Added right padding to balance out the width changes */
+}
+
+.about-title {
+    color: rgb(9, 72, 37); 
+    font-size: 2.8rem;
+    font-weight: 700;
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgb(238, 235, 235);
+}
+
+.about-text {
+    color: #4a3b2c; 
+    font-size: 1.15rem;
+    line-height: 1.7; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    margin-bottom: 1.2rem;
+}
+
+/* Last paragraph ka margin bottom hatane ke liye */
+.about-text:last-child {
+    margin-bottom: 0;
+}
+/* RESPONSIVE LAYOUT FOR ABOUT PAGE AND FOOTER (Screen width <= 768px) */
+@media (max-width: 768px) {
+    .about-section {
+        margin: 1.5rem auto 0 auto;
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: #ffffff;
+        padding: 1rem 0;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .about-left {
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .about-left img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+        object-fit: cover;
+    }
+
+    .about-right {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.65;
+    }
+
+    .footer-section {
+        padding: 2rem 0 1rem 0;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2.2rem;
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;
+        flex: none;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}

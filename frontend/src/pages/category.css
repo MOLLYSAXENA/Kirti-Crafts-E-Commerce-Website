@@ -1,0 +1,238 @@
+/* --- PAGE CONTAINER SETUP --- */
+.category-page-container {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* --- BANNER HEADER STYLING --- */
+.category-header {
+    background: linear-gradient(180deg, #fbf5ec, #ffffff);
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid #ebd9c5;
+    
+}
+
+.category-header h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: rgb(9, 72, 37);
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.05rem;
+}
+
+.category-header p {
+    color: rgb(207, 152, 15);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+/* --- MAIN LAYOUT BLOCK --- */
+.products-layout-wrapper {
+    width: 80%;
+    margin: 2rem auto 4rem auto;
+    display: block;
+}
+
+.products-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.8rem;
+}
+
+.products-count-bar {
+    color: #4a3b2c;
+    font-family: Georgia, serif;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.products-arrange-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: 'Gill Sans MT', sans-serif;
+    color: #4a3b2c;
+}
+
+.arrange-btn {
+    border: 1px solid #9f611a;
+    background: #ffffff;
+    color: #9f611a;
+    padding: 0.55rem 0.9rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.arrange-btn:hover {
+    background: #f3e5d1;
+    transform: translateY(-1px);
+}
+
+.arrange-btn.active {
+    background: #9f611a;
+    color: #ffffff;
+    border-color: #9f611a;
+}
+
+.products-count-bar span {
+    font-weight: bold;
+    color: rgb(9, 72, 37);
+}
+
+/* --- THE CARD FLEX GRID --- */
+.products-grid {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.product-item-card {
+    background: #fbf5ec;
+    border: 1px solid #ebd9c5;
+    border-radius: 12px;
+    width: calc(25% - 2rem); /* 4 Cards per row across large desktops */
+    min-width: 16rem;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.product-item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+}
+
+.img-wrapper {
+    cursor: pointer;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+}
+
+.product-details {
+    padding: 1.2rem;
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+.product-details h3 {
+    margin: 0 0 0.5rem 0;
+    color: #4a3b2c;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Heading badi hone par ... dot automatic set kar dega */
+}
+
+/* --- DYNAMIC PRICE DISPLAY --- */
+.price-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.new-price {
+    color: rgb(9, 72, 37);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.old-price {
+    color: #8c7e70;
+    text-decoration: line-through; /* Crossed discount display pricing line */
+    font-size: 0.95rem;
+}
+
+/* --- BUTTON & DYNAMIC COUNTER BOX --- */
+.view-product-btn {
+    width: 100%;
+    background: linear-gradient(#be7523, #9f611a);
+    color: white;
+    border: none;
+    padding: 0.6rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: opacity 0.2s;
+}
+
+.view-product-btn:hover {
+    opacity: 0.9;
+}
+
+/* Container for [- Qty +] block layout */
+.cart-counter-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border: 2px solid #9f611a;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 2.4rem;
+    box-sizing: border-box;
+}
+
+/* Operational buttons styling */
+.counter-btn {
+    background: #9f611a;
+    color: #ffffff;
+    border: none;
+    height: 100%;
+    width: 2.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.counter-btn:hover {
+    background: rgb(9, 72, 37);
+}
+
+/* Dynamic Quantity number layout */
+.counter-qty {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4a3b2c;
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links {
+        justify-content: center; /* Icons ko card container ke center me shift*/
+    }}

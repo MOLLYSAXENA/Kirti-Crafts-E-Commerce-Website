@@ -1,0 +1,196 @@
+.hero {
+    background: linear-gradient(180deg, #ffffff, #fbf5ec, #fcfcfb, #fcf8f1);
+    display: flex;
+    margin: 2rem auto 0 auto; 
+    height: fit-content;
+    border: 1px solid rgb(244, 230, 192);
+    box-shadow: 0px 5px 5px rgba(2, 2, 2, 0.1);
+    width: 90%; 
+    justify-content: center;
+    align-items: center;
+    padding: 0 ;
+}
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding-left: 4rem;
+}
+
+/* --- HERO CONTAINER --- */
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Reduced this gap slightly so the button doesn't sit miles away */
+    gap: 1rem; 
+    padding-left: 4rem;
+}
+
+/* --- PARAGRAPH STYLES WITH TIGHT SPACING --- */
+
+.head {
+    color: rgb(9, 72, 37);          
+    font-size: 2.5rem;               
+    font-weight: 600;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 2px 2px rgb(218, 214, 214);
+    letter-spacing: -0.04rem;
+    
+    /* FIX: Clear default margins and add a tiny custom gap below */
+    margin: 0;
+    margin-bottom: -1.6rem; 
+    padding: 0;
+}
+
+.col1 {
+    color: rgb(207, 152, 15);
+    font-size: 3rem;
+    font-weight: 900;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-shadow: 1px 2px 2px rgb(218, 214, 214);
+    letter-spacing: 0.01rem;
+    
+    /* FIX: Clear default margins and add a snug gap before description */
+    margin: 0;
+    margin-bottom: -1rem; 
+    padding: 0;
+}
+
+.col2 {
+    color: rgb(9, 72, 37);
+    font-size: 1.1rem;                 
+    font-weight: 500;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-shadow: 1px 2px 2px rgb(218, 214, 214);
+    letter-spacing: -0.001rem;
+    
+    /* FIX: Clear default margins */
+    margin: 0; 
+    padding: 0;
+    width: 25rem;
+}
+
+/* --- BUTTON STYLES --- */
+.hero-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 15rem;
+    height: 4rem;
+    border: 1px solid #d7b07c;
+    font-family: 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: x-large;
+    color: #ffffff;
+    background: linear-gradient(#be7523, #9f611a, #a85f0a);
+    
+    /* FIX: Changed from 60% to a fixed pixel value for smooth corners instead of an oval */
+    border-radius: 8px; 
+    
+    margin-top: 0.5rem;
+    box-shadow: 1px 2px 4px #cdcbc8;
+    padding: 0.03rem;
+}
+/* Remove the space between the class name and :hover */
+.hero-btn:hover {
+    color: rgb(35, 117, 10);
+    background: linear-gradient(#eae5dc, #efddc9, #edceae);
+    cursor: pointer; 
+}
+.hero-right {
+    flex: 1;
+    display: flex;
+    align-items: center;     /* Image ko vertically center rakhega */
+    justify-content: center; /* Image ko horizontally center rakhega */
+    align-self: stretch;     /* Yeh right div ko upar se neeche tak stretch karega but hero box ke andar hi rakhega */
+}
+
+/* 2. Image ko right div ke hisab se scale kijiye */
+.hero-right img {
+    /* top-left | top-right | bottom-right | bottom-left */
+    border-radius: 40% 0 0 40%;
+    
+    width: 100%;        /* Rem hata kar 100% kijiye taaki yeh right div ki poori width le le */
+    height: 100%;       /* Right div ki poori height lene ke liye */
+    max-height: 35rem;  /* Isse zyada badi nahi hogi, taaki layout kharab na ho */
+    
+    object-fit: cover;  /* Isse image stretch hone par bhi kheechi hui ya kharab nahi dikhegi */
+}
+/* HERO SECTION RESPONSIVE MEDIA QUERY (Screen width <= 768px)
+    */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column-reverse; /* Image ko upar aur text ko neeche karne ke liye */
+        width: 95%; /* Mobile screen par thoda zyada space cover karega */
+        margin: 1rem auto;
+        padding: 0;
+        height: auto;
+    }
+
+    /* Left Text Side Adjustment */
+    .hero-left {
+        padding: 2rem 1.5rem; /* Left side ka heavy padding hatakar uniform padding di */
+        align-items: center;  /* Saare text aur button ko center align karne ke liye */
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    /* Typography Scaling for Mobile */
+    .head {
+        font-size: 1.8rem; /* Font size thoda chota kiya taaki wrap na ho */
+        margin-bottom: 0;  /* Negative margins mobile par overlap karti hain, isliye reset kiya */
+    }
+
+    .col1 {
+        font-size: 2.2rem;
+        margin-bottom: 0;  /* Negative margins reset */
+    }
+
+    .col2 {
+        font-size: 1rem;
+        width: 100%;       /* Fixed 25rem hatakar full-responsive 100% kiya */
+        max-width: 28rem;  /* Text zyada stretch na ho responsive limits me */
+        line-height: 1.4;
+    }
+
+    /* Button Adjustment */
+    .hero-btn {
+        width: 13rem;      /* Mobile par comfortable click area click size */
+        height: 3.5rem;
+        font-size: large;
+        margin-top: 0.5rem;
+    }
+
+    /* Right Image Side Adjustment */
+    .hero-right {
+        width: 100%;
+        height: 18rem;    /* Mobile par height restrict kari taaki scrolling long na ho */
+    }
+
+    .hero-right img {
+        /* Border radius change kiya kyunki ab image left side me nahi, balki top par hai */
+        border-radius: 12px 12px 0 0; 
+        max-height: 100%;
+    }
+}
+
+/* 📱 SMALL SMARTPHONES (Phones <= 480px) */
+@media (max-width: 480px) {
+    .head {
+        font-size: 1.5rem;
+    }
+
+    .col1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-right {
+        height: 14rem; /* Chote phones par image height thodi aur kam kari */
+    }
+    
+}

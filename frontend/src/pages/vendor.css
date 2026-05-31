@@ -1,0 +1,210 @@
+/* --- CONTAINER VIEW WRAPPER --- */
+.vendor-page-container {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* --- VENDOR UPPER TOPBAR BANNER --- */
+.vendor-header {
+    background: linear-gradient(180deg, #fbf5ec, #ffffff);
+    padding: 3rem 0;
+    text-align: center;
+    border-bottom: 1px solid #ebd9c5;
+}
+
+.vendor-header h1 {
+    font-family: 'Trebuchet MS', sans-serif;
+    color: rgb(9, 72, 37); /* Primary Forest Green */
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.05rem;
+}
+
+.vendor-header p {
+    color: rgb(207, 152, 15); /* Brand Gold accent highlights */
+    font-weight: bold;
+    margin-top: 0.5rem;
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+.vendor-wrapper {
+    width: 90%;
+    max-width: 42rem; /* Clean professional dashboard form constraint width */
+    margin: 3rem auto 5rem auto;
+}
+
+/* --- THE MAIN FORM PANEL CARD --- */
+.vendor-form-box {
+    background-color: #ffffff;
+    border: 1px solid #ebd9c5;
+    border-radius: 12px;
+    padding: 2.5rem 2.2rem;
+    box-shadow: 0 6px 20px rgba(74, 59, 44, 0.03);
+    font-family: 'Gill Sans MT', Calibri, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.vendor-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vendor-input-group label {
+    color: #4a3b2c;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.vendor-input-group input, 
+.vendor-input-group textarea, 
+.vendor-select {
+    width: 100%;
+    border: 1px solid #ebd9c5;
+    border-radius: 6px;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+    color: #4a3b2c;
+    background-color: #fbf5ec30;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.vendor-input-group input:focus, 
+.vendor-input-group textarea:focus, 
+.vendor-select:focus {
+    border-color: rgb(9, 72, 37);
+    background-color: #ffffff;
+}
+
+/* --- ROW RESPONSIVENESS SETUP --- */
+.vendor-form-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap; /* Automatically breaks into stack on mobile screens */
+}
+
+.flex-1 {
+    flex: 1;
+    min-width: 10rem;
+}
+
+/* --- IMAGE DYNAMIC PREVIEW BOX PANEL --- */
+.image-upload-wrapper {
+    width: 100%;
+}
+
+.upload-box-label {
+    display: flex;
+    width: 11rem;
+    height: 11rem;
+    border: 2px dashed #be7523; /* Terracotta dotted borders */
+    border-radius: 10px;
+    background-color: #fbf5ec50;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: background-color 0.2s;
+}
+
+.upload-box-label:hover {
+    background-color: #fbf5ec;
+}
+
+.upload-placeholder-text {
+    text-align: center;
+    color: #be7523;
+}
+
+.plus-icon {
+    font-size: 2.2rem;
+    font-weight: 300;
+}
+
+.upload-placeholder-text p {
+    margin: 0.4rem 0 0 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.uploaded-preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- THE MAIN FORM SUBMIT ACTION --- */
+.vendor-submit-btn {
+    width: 100%;
+    height: 3rem;
+    background: linear-gradient(#145a2f, rgb(9, 72, 37)); /* Dedicated dark forest green button profile */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.05rem;
+    box-shadow: 0 4px 8px rgba(9, 72, 37, 0.15);
+    margin-top: 1rem;
+    transition: opacity 0.2s;
+}
+
+.vendor-submit-btn:hover {
+    opacity: 0.95;
+}
+
+.vendor-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* --- STATUS MESSAGE BANNER --- */
+.vendor-status-msg {
+    padding: 0.9rem 1.2rem;
+    border-radius: 8px;
+    font-family: 'Gill Sans MT', Calibri, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.vendor-status-msg.success {
+    background-color: #e6f4ea;
+    color: #1a6b2f;
+    border: 1px solid #a8d5b5;
+}
+
+.vendor-status-msg.error {
+    background-color: #fdecea;
+    color: #b71c1c;
+    border: 1px solid #f5c6c6;
+}
+
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links {
+                justify-content: center; /* Icons ko card container ke center me shift*/}}

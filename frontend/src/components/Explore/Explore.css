@@ -1,0 +1,94 @@
+/* The entire section setup */
+.explore-section {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #ffffff; /* Matches your clean background */
+}
+
+/* Heading style */
+.section-title {
+    font-family:  'Trebuchet MS', sans-serif;
+    color: #076f0c; /* Deep brownish-tonal color matching your navbar */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02rem;
+
+}
+
+/* --- THE FLEXBOX MAGIC CONTAINER --- */
+.categories-container {
+    display: flex;
+    justify-content: center;  /* Centers all the cards horizontally */
+    align-items: center;      /* Vertically aligns them evenly */
+    gap: 1.5rem;             /* Evenly spaces cards apart without margin-hacks */
+    flex-wrap: wrap;         /* Ensures if screen is small, items wrap neatly */
+}
+
+/* --- THE INDIVIDUAL CARDS --- */
+.category-card {
+    background: #fbf5ec;      /* Warm beige background from your image */
+    border: 1px solid #ebd9c5;
+    border-radius: 16px;      /* Smooth round curves matching your main theme */
+    padding: 0.5rem;          /* Inner spacing around the image */
+    width: 12.5rem;           /* Fixed card width */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.2s ease;
+    text-decoration: none; /* Underline hatane ke liye */
+    color: inherit;
+}
+
+/* Card hover animation just for fun */
+.category-card:hover {
+    transform: translateY(-5px); /* Soft float effect */
+    cursor: pointer;
+    text-decoration: underline;
+    color: darkgreen;
+    background-color: rgb(235, 227, 206);
+    box-shadow: 0 3px 5px#ebd9c5;
+
+}
+
+/* Images inside the cards */
+.category-card img {
+    width: 100%;              /* Scales to fill the card width */
+    height: 9.5rem;           /* Fixed height to keep all cards uniform */
+    object-fit: cover;        /* Prevents your product images from squishing */
+    border-radius: 12px;      /* Rounded image corners inside the card */
+}
+
+/* Label text below images */
+.category-card p {
+    font-family: 'Gill Sans MT', Calibri, sans-serif;
+    font-weight: bold;
+    color: #3d2514;
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+    font-size: 1rem;
+    letter-spacing: 0.03rem;
+}
+/* ==========================================================================
+   📱 FOOTER SECTION RESPONSIVE MEDIA QUERY (Screen width <= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .footer-section {
+        padding: 2rem 0 1rem 0; /* Mobile par structural breathing space spacing tight ki */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Saare columns ko vertically alignment de diya */
+        align-items: center;    /* Contents ko horizontally center karne ke liye */
+        text-align: center;     /* Saare headings aur lists ko center align kiya */
+        gap: 2.2rem;            /* Dynamic row elements ke beech vertical space badhaya */
+        width: 85%;
+    }
+
+    .footer-col, .brand-info {
+        width: 100%;            /* Layout elements pure screen width me failenge */
+        flex: none;
+    }
+
+    /* Social icons layout alignment fix */
+    .social-links {
+        justify-content: center;} /* Icons ko card container ke center me shift*/
+    }
