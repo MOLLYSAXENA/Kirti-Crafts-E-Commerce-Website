@@ -5,7 +5,7 @@ import { ShopContext } from './ShopContext';
 import './vendor.css';
 
 const Vendor = () => {
-  const { refreshProducts } = useContext(ShopContext);
+  const { refreshProducts, all_products } = useContext(ShopContext);
 
   const emptyForm = {
     name: "",
@@ -20,6 +20,7 @@ const Vendor = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [statusMsg, setStatusMsg] = useState(null); // { type: 'success'|'error', text: '' }
+  const [deletingId, setDeletingId] = useState(null);
 
   const changeHandler = (e) => {
     setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
@@ -89,6 +90,36 @@ const Vendor = () => {
     }
 
     setLoading(false);
+  };
+
+  const deleteProduct = async (productId, productName) => {
+    if (!window.confirm(`Are you sure you want to delete "${productName}"?`)) {
+      return;
+    }
+
+    setDeletingId(productId);
+    setStatusMsg(null);
+
+    try {
+      const deleteRes = await fetch('/removeproduct', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: productId, name: productName }),
+      });
+      const deleteData = await deleteRes.json();
+
+      if (deleteData.success) {
+        setStatusMsg({ type: 'success', text: `✅ "${productName}" has been removed from the store!` });
+        if (refreshProducts) refreshProducts();
+      } else {
+        setStatusMsg({ type: 'error', text: `❌ Failed to delete product: ${deleteData.message || 'Unknown error'}` });
+      }
+    } catch (err) {
+      console.error(err);
+      setStatusMsg({ type: 'error', text: '❌ Could not connect to backend. Is the server running on port 4000?' });
+    }
+
+    setDeletingId(null);
   };
 
   return (
@@ -202,6 +233,45 @@ const Vendor = () => {
           </button>
 
         </form>
+
+        {/* Products List Section */}
+        {all_products && all_products.length > 0 && (
+          <div className="vendor-products-section">
+            <h2 className="vendor-products-title">📦 Your Listed Products</h2>
+            <p className="vendor-products-count">Total: {all_products.length} items</p>
+            
+            <div className="vendor-products-grid">
+              {all_products.map((product) => (
+                <div key={product.id} className="vendor-product-card">
+                  <div className="vendor-product-image">
+                    <img src={product.image} alt={product.name} />
+                  </div>
+                  
+                  <div className="vendor-product-details">
+                    <h3 className="vendor-product-name">{product.name}</h3>
+                    
+                    <p className="vendor-product-category">Category: <span>{product.category}</span></p>
+                    
+                    <div className="vendor-product-prices">
+                      <span className="vendor-price-old">₹{product.old_price}</span>
+                      <span className="vendor-price-new">₹{product.new_price}</span>
+                    </div>
+                    
+                    <p className="vendor-product-description">{product.description.substring(0, 60)}...</p>
+                    
+                    <button 
+                      className="vendor-delete-btn"
+                      onClick={() => deleteProduct(product.id, product.name)}
+                      disabled={deletingId === product.id}
+                    >
+                      {deletingId === product.id ? '⏳ Deleting...' : '🗑️ Delete'}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <Footer />
