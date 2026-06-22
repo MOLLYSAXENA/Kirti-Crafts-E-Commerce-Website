@@ -7,12 +7,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/upload': {
-        target: 'http://localhost:4000',
+        target: process.env.VITE_API_URL || 'http://localhost:4000',
         changeOrigin: true,
       },
-      '/addproduct': 'http://localhost:4000',
-      '/removeproduct': 'http://localhost:4000',
-      '/allproducts': 'http://localhost:4000',
+      '/addproduct': process.env.VITE_API_URL || 'http://localhost:4000',
+      '/removeproduct': process.env.VITE_API_URL || 'http://localhost:4000',
+      '/allproducts': process.env.VITE_API_URL || 'http://localhost:4000',
     }
   }
 })
