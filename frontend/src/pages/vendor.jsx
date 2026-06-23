@@ -72,7 +72,7 @@ const Vendor = () => {
         image: uploadData.image_url,
       };
 
-      const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
+      
       const addRes = await fetch(`${backendUrl}/addproduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
