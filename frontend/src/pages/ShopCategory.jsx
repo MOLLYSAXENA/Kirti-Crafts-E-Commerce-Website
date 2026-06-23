@@ -8,6 +8,9 @@ const ShopCategory = (props) => {
   const { all_products, cartItems, addToCart, removeFromCart } = useContext(ShopContext);
   const [sortOption, setSortOption] = useState('default');
 
+  // 🛠️ DYNAMIC BACKEND URL SETUP
+  const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
   // Filter products based on category
   const filteredProducts = (all_products || []).filter(item => 
     item && item.category && props.category && 
@@ -79,7 +82,10 @@ const ShopCategory = (props) => {
               return (
                 <div key={product.id} className="product-item-card">
                   <div className="img-wrapper">
-                    <img src={product.image} alt={product.name} />
+                    <img 
+                      src={product.image?.startsWith('http') ? product.image : `${backendUrl}${product.image}`} 
+                      alt={product.name} 
+                    />
                   </div>
                   
                   <div className="product-details">

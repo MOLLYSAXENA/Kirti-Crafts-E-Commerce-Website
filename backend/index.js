@@ -1,14 +1,21 @@
 const express = require("express");
-
 const cors = require("cors");
 const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const cloudinary = require('cloudinary').v2;
 require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+// Configure Cloudinary
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
 
 // Ensure upload directory exists
 const uploadDir = path.join(__dirname, "upload/images");
@@ -62,25 +69,38 @@ if (process.env.MONGO_URI && process.env.MONGO_URI !== 'YOUR_MONGODB_CONNECTION_
 
 // 🕵️‍♂️ Apne backend me yeh block dhoondhiye:
 const storage = multer.diskStorage({
-    destination: './upload/images', // 👈 Check kijiye ki kya exact yahi folder ka naam hai?
+    destination: './upload/images',
     filename: (req, file, cb) => {
         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
     }
 })
 
 const upload = multer({ storage: storage });
-// ============================================================================
-// 📸 IMAGE UPLOAD API
-// ============================================================================
-app.post('/upload', upload.single('product'), (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({ success: 0, message: 'No image file uploaded' });
-    }
 
-    // Return relative URL so it works through Vite proxy
-    const imageUrl = `/upload/images/${req.file.filename}`;
-    console.log('Image uploaded:', imageUrl);
-    return res.json({ success: 1, image_url: imageUrl });
+// ============================================================================
+// 📸 IMAGE UPLOAD API - CLOUDINARY
+// ============================================================================
+app.post('/upload', upload.single('product'), async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ success: 0, message: 'No image file uploaded' });
+        }
+
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: 'kirti-crafts',
+            resource_type: 'image'
+        });
+
+        // Delete local file after upload
+        fs.unlinkSync(req.file.path);
+
+        console.log('Image uploaded to Cloudinary:', result.secure_url);
+        return res.json({ success: 1, image_url: result.secure_url });
+    } catch (error) {
+        console.error('Cloudinary upload error:', error);
+        return res.status(500).json({ success: 0, message: 'Image upload failed', error: error.message });
+    }
 });
 
 // ============================================================================
@@ -138,11 +158,17 @@ app.post("/removeproduct", async (req, res) => {
     });
 });
 
-// 3. GET ALL PRODUCTS API (GET) - Yeh frontend me grid dikhane ke kaam aayega
+// 3. GET ALL PRODUCTS API (GET)
 app.get("/allproducts", async (req, res) => {
-    let products = await Product.find({});
-    console.log("All Products Fetched");
-    res.send(products);
+    try {
+        let products = await Product.find({});
+        console.log("All Products Fetched:", products.length);
+        // JSON format mein explicit response bhejna better hota hai
+        res.json(products); 
+    } catch (error) {
+        console.error("Fetch Products Error:", error);
+        res.status(500).json({ success: false, message: "Error fetching data" });
+    }
 });
 
 
