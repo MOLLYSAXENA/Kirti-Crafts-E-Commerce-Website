@@ -52,7 +52,7 @@ const Vendor = () => {
 
       const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
                 
-      const uploadRes = await fetch('${backendUrl}/upload', {
+      const uploadRes = await fetch(`${backendUrl}/upload`, {
         method: 'POST',
         body: formData,
       });
@@ -73,7 +73,7 @@ const Vendor = () => {
       };
 
       const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
-      const addRes = await fetch('${backendUrl}/addproduct', {
+      const addRes = await fetch(`${backendUrl}/addproduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(product),
@@ -106,7 +106,7 @@ const Vendor = () => {
     try {
       const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
               
-      const deleteRes = await fetch('${backenfUrl}/removeproduct', {
+      const deleteRes = await fetch(`${backendUrl}/removeproduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: productId, name: productName }),
