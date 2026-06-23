@@ -49,9 +49,6 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// Serve uploaded images as static files
-app.use('/upload/images', express.static(path.join(__dirname, 'upload/images')));
-
 // MongoDB Database Connection - don't let this block the server
 if (process.env.MONGO_URI && process.env.MONGO_URI !== 'YOUR_MONGODB_CONNECTION_STRING_HERE') {
     mongoose.connect(process.env.MONGO_URI)
