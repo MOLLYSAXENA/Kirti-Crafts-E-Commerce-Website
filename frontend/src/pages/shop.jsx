@@ -1,4 +1,4 @@
-import Hero from '../components/Hero/Hero'
+import Hero from '../components/Hero/hero'
 import ExploreCrafts from '../components/Explore/Explore';
 import AboutUs from '../components/About/Aboutus';
 import Footer from '../components/Footer/Footer';
