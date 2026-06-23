@@ -45,10 +45,17 @@ app.use(express.json());
 // Serve uploaded images as static files
 app.use('/upload/images', express.static(path.join(__dirname, 'upload/images')));
 
-// MongoDB Database Connection
-mongoose.connect(process.env.MONGO_URI)
-.then(() => console.log("🍃 MongoDB Connected Successfully!"))
-.catch((err) => console.error("❌ Database Error:", err));
+// MongoDB Database Connection - don't let this block the server
+if (process.env.MONGO_URI && process.env.MONGO_URI !== 'YOUR_MONGODB_CONNECTION_STRING_HERE') {
+    mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log("🍃 MongoDB Connected Successfully!"))
+    .catch((err) => {
+        console.error("❌ Database Error:", err.message);
+        // Server will continue running even if MongoDB fails
+    });
+} else {
+    console.warn("⚠️ MONGO_URI not configured. Running without database.");
+}
 
 
 // =====
@@ -142,6 +149,15 @@ app.get("/allproducts", async (req, res) => {
 // Basic Home Route
 app.get("/", (req, res) => {
     res.send("🌸 Kirti Crafts Backend Server is Live with APIs! 🌸");
+});
+
+// CORS test endpoint
+app.get("/test-cors", (req, res) => {
+    res.json({ 
+        message: "CORS is working!", 
+        timestamp: new Date().toISOString(),
+        origin: req.headers.origin 
+    });
 });
 
 app.listen(PORT, () => {
