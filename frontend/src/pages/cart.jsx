@@ -4,6 +4,8 @@ import Footer from '../components/Footer/Footer'; // Footer ka sahi relative pat
 import PageOptions from '../components/PageOptions/PageOptions';
 import './cart.css';
 
+const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
 const Cart = () => {
   const { all_products, cartItems, addToCart, removeFromCart } = useContext(ShopContext);
 
@@ -55,7 +57,11 @@ const Cart = () => {
                   return (
                     <div key={product.id}>
                       <div className="cart-item-row">
-                        <img src={product.image} alt={product.name} className="cart-item-img" />
+                        <img 
+                          src={product.image?.startsWith('http') ? product.image : `${backendUrl}${product.image}`} 
+                          alt={product.name} 
+                          className="cart-item-img" 
+                        />
                         <p className="cart-item-name">{product.name}</p>
                         <p>₹{product.new_price}</p>
                         

@@ -7,6 +7,9 @@ import './vendor.css';
 const Vendor = () => {
   const { refreshProducts, all_products } = useContext(ShopContext);
 
+  // 🛠️ DYNAMIC BACKEND URL SETUP (Declared once at top)
+  const backendUrl = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
   const emptyForm = {
     name: "",
     category: "Clothes", 
@@ -49,8 +52,6 @@ const Vendor = () => {
       // Step 1: Upload image
       const formData = new FormData();
       formData.append('product', image);
-
-      const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
                 
       const uploadRes = await fetch(`${backendUrl}/upload`, {
         method: 'POST',
@@ -72,7 +73,6 @@ const Vendor = () => {
         image: uploadData.image_url,
       };
 
-      
       const addRes = await fetch(`${backendUrl}/addproduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -89,7 +89,7 @@ const Vendor = () => {
       }
     } catch (err) {
       console.error(err);
-      setStatusMsg({ type: 'error', text: '❌ Could not connect to backend. Is the server running on port 4000?' });
+      setStatusMsg({ type: 'error', text: '❌ Could not connect to backend. Is the server running?' });
     }
 
     setLoading(false);
@@ -104,8 +104,6 @@ const Vendor = () => {
     setStatusMsg(null);
 
     try {
-      const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
-              
       const deleteRes = await fetch(`${backendUrl}/removeproduct`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -121,7 +119,7 @@ const Vendor = () => {
       }
     } catch (err) {
       console.error(err);
-      setStatusMsg({ type: 'error', text: '❌ Could not connect to backend. Is the server running on port 4000?' });
+      setStatusMsg({ type: 'error', text: '❌ Could not connect to backend. Is the server running?' });
     }
 
     setDeletingId(null);
@@ -249,7 +247,10 @@ const Vendor = () => {
               {all_products.map((product) => (
                 <div key={product.id} className="vendor-product-card">
                   <div className="vendor-product-image">
-                    <img src={product.image} alt={product.name} />
+                    <img 
+                      src={product.image?.startsWith('http') ? product.image : `${backendUrl}${product.image}`} 
+                      alt={product.name} 
+                    />
                   </div>
                   
                   <div className="vendor-product-details">
