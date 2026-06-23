@@ -19,7 +19,8 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         const loadProducts = async () => {
             try {
-                const response = await fetch('/allproducts');
+                const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
+                const response = await fetch('${backendUrl}/allproducts');
                 if (!response.ok) throw new Error('Failed to fetch products');
                 const products = await response.json();
                 if (Array.isArray(products)) {
@@ -51,7 +52,8 @@ const ShopContextProvider = (props) => {
 
     const refreshProducts = async () => {
         try {
-            const response = await fetch('/allproducts');
+            const backendUrl= import.meta.env.VITE_API_URL || "http://localhost:4000";
+            const response = await fetch('${backendUrl}/allproducts');
             if (!response.ok) throw new Error('Failed to refresh products');
             const products = await response.json();
             if (Array.isArray(products)) {
